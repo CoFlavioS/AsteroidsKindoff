@@ -9,6 +9,8 @@ public class ShootBullet : MonoBehaviour
     public SpriteRenderer origin;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public int maxBullets = 2;
+    public int bulletsLeft;
 
     private void Start()
     {
@@ -16,8 +18,11 @@ public class ShootBullet : MonoBehaviour
     }
     void Update()
     {
+        bulletsLeft = GameObject.FindGameObjectsWithTag("Bullet").Length;
+
         timeCount -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.UpArrow) && timeCount <= 0)
+
+        if (Input.GetKey(KeyCode.UpArrow) && timeCount <= 0 && bulletsLeft < maxBullets)
         {
             Shoot();
             origin.color = Color.clear;
