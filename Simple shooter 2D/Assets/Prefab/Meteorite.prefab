@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8136637292395847749}
   - component: {fileID: 5680619080147083134}
   - component: {fileID: 7034593878405726434}
+  - component: {fileID: 7307165118533491621}
   m_Layer: 9
   m_Name: Meteorite
   m_TagString: Enemies
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947931659865949898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.24, y: 1.55, z: 0}
-  m_LocalScale: {x: 6, y: 4, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8331db7560414294cb54a54d65321535, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,14 +115,14 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 58f3bb88503c7de4b88ec5bc2cdfcbc6, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.17777778, y: 0.17777778}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -129,12 +130,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.08, y: 0.08}
-      - {x: -0.08, y: -0.08}
-      - {x: 0.074999996, y: -0.08}
-      - {x: 0.08, y: -0.06}
-      - {x: 0.08, y: 0.07}
-      - {x: 0.055, y: 0.08}
+    - - {x: 0.033611864, y: 0.06403384}
+      - {x: 0.013052747, y: 0.0636767}
+      - {x: -0.011079623, y: 0.06823905}
+      - {x: -0.046865042, y: 0.0673959}
+      - {x: -0.066885985, y: 0.04499541}
+      - {x: -0.07369047, y: 0.0114993965}
+      - {x: -0.070853926, y: -0.014860888}
+      - {x: -0.07214861, y: -0.035955086}
+      - {x: -0.03922549, y: -0.06578416}
+      - {x: 0.0015343539, y: -0.061026946}
+      - {x: 0.031123996, y: -0.062922865}
+      - {x: 0.050031234, y: -0.047534805}
+      - {x: 0.06883828, y: -0.03838941}
+      - {x: 0.077424765, y: -0.016132131}
+      - {x: 0.06893143, y: 0.019167308}
+      - {x: 0.07394992, y: 0.031017076}
+      - {x: 0.07214481, y: 0.037651956}
+      - {x: 0.05487856, y: 0.06102694}
 --- !u!114 &7034593878405726434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +160,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7f00a72cd9d0948a18146a5f8b4b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: 0
-  col: {fileID: 5680619080147083134}
+  life: 0
+  level: 0
+  maxV: 4
   speed: 2
   rb: {fileID: 8136637292395847749}
+  meteoritePrefab: {fileID: 7034593878405726434}
+  player: {fileID: 0}
+--- !u!114 &7307165118533491621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947931659865949898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa32e31d9ed38e54db48c3a06d6294df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yLimit: 6.5
+  xLimit: 10.5

@@ -1,33 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MeteoriteSpawner : MonoBehaviour
 {
     private int rand;
     private Vector2 spawnedPosition;
     public Quaternion spawnedRotation;
-    public Meteorite meteoritePrefab;
-    public float frecuency = 0.5f;
-    private float timeCount = 0;
+    public GameObject meteoritePrefab;
     public float angle;
     public Vector2 destinyPosition;
     private GameObject[] gos;
+    public int quantity = 1;
+    private int i;
+    public TextMeshProUGUI round;
+
     private void Start()
     {
-        timeCount = frecuency;
+        quantity = 1;
     }
 
     void Update()
     {
-        timeCount -= Time.deltaTime;
         gos = GameObject.FindGameObjectsWithTag("Enemies");
-        if (timeCount <= 0 && gos.Length < 20)
+        if (gos.Length <= 0)
         {
-            SpawnMeteorite();
-            timeCount = frecuency;
+            round.text = "Round " + quantity;
+            for (i = quantity; i>0; i--)SpawnMeteorite();
+            quantity++;
         }
-        if (timeCount < -20f) timeCount = -18;
     }
 
     Vector3 SelectOrigin()
@@ -84,6 +86,6 @@ public class MeteoriteSpawner : MonoBehaviour
         else if (spawnedPosition.y == 10 && spawnedPosition.x < destinyPosition.x) spawnedRotation = Quaternion.Euler(0, 0, -angle);
         else spawnedRotation = Quaternion.Euler(0, 0, angle);
         Instantiate(meteoritePrefab, spawnedPosition, spawnedRotation);
-        //Debug.DrawLine(spawnedPosition, destinyPosition, Color.red, 20f);
+        Debug.DrawLine(spawnedPosition, destinyPosition, Color.red, 20f);
     }
 }
