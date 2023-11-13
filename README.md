@@ -1,2 +1,2 @@
 # AsteroidsKindoff
-Im creating Asteroids kindof game but with few changes in design and mechanics
+I´m creating a game similar to Asteroids.
